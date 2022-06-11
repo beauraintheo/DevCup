@@ -26,6 +26,7 @@ const Play = () => {
 			name: "Champignon",
 			desc: "Ajoute +3 à votre prochain jet de dés",
 			image: Champi,
+			percentage: 40,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -33,6 +34,7 @@ const Play = () => {
 			name: "Thwomp",
 			desc: "Fait reculer l'adversaire de 3 cases",
 			image: Thwomp,
+			percentage: 20,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -40,6 +42,7 @@ const Play = () => {
 			name: "Klaxon",
 			desc: "Vous protège contre la prochaine attaque",
 			image: Klaxon,
+			percentage: 20,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -47,6 +50,7 @@ const Play = () => {
 			name: "Etoile",
 			desc: "Vous rend intouchable pendant 3 tours",
 			image: Etoile,
+			percentage: 10,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -54,6 +58,7 @@ const Play = () => {
 			name: "Champi Boost",
 			desc: "Triple votre prochain lancer",
 			image: ChampiBoost,
+			percentage: 5,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -61,6 +66,7 @@ const Play = () => {
 			name: "Carapace bleue",
 			desc: "Renvoie votre adversairee à la case départ",
 			image: CarapaceBleue,
+			percentage: 4,
 			onClick: (id) => setActiveItem(id)
 		},
 		{
@@ -68,6 +74,7 @@ const Play = () => {
 			name: "Bill Balle",
 			desc: "Vous fait gagner la course",
 			image: BillBall,
+			percentage: 1,
 			onClick: (id) => setActiveItem(id)
 		}
 	];
@@ -78,14 +85,14 @@ const Play = () => {
 			id: 1,
 			name: "Théo",
 			position: 0,
-			items: [0, 1, 2],
+			items: [],
 			selectItem: false
 		},
 		{
 			id: 2,
 			name: "Acensi",
 			position: 0,
-			items: [0, 1, 2],
+			items: [],
 			selectItem: false
 		}
 	]);
@@ -98,18 +105,22 @@ const Play = () => {
 	
 	const boardSize = 40;
 
-	const bonus = (id) => {
-		switch(id) {
-			case 0: 
-				setDiceResult(diceResult + 3);
-				break;
-				default:
-				break;
-			}
+	const giveItems = () => {
+		let itemByPercentage = "";
+		items.map(item => { 
+			for (let i = 0; i < item.percentage; i++) itemByPercentage += item.id; 
+		})
+		itemByPercentage = itemByPercentage.split("");
+
+		players.map(player => {
+			for (let i = 0; i < 2; i++) player.items.push(itemByPercentage[Math.floor(Math.random() * 100)])
+		})
 	}
+
+	// Give items to players randomly
+	React.useEffect(() => giveItems(), [])
 	
 	// Do a player turn
-
 	React.useEffect(() => {
 		setPlayers(players.map(player => (
 			player.id - 1 === oldPlayerId 
@@ -120,7 +131,6 @@ const Play = () => {
 	}, [ currentPlayerId ] );
 
 	// Alert when a player win
-
 	React.useEffect(() => {
 		players.map(player => {
 			if (player.position === boardSize - 1) {
