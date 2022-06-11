@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'Press Start 2p';
+	src: url("../../assets/fonts/PressStart2P-Regular.ttf");
+}
+
+.home-container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: "Press Start 2P";
+}
+
+.home-container h1 {
+	font-size: 50pt;
+}
+
+.home-container .button-list {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

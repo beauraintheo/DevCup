@@ -1,0 +1,11 @@
+.player-board {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+	width: 50%;
+}
+
+.player-name {
+	margin-right: 20px;
+}

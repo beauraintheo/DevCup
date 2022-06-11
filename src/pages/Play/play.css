@@ -1,0 +1,38 @@
+@font-face {
+	font-family: 'Press Start 2p';
+	src: url("../../assets/fonts/PressStart2P-Regular.ttf");
+}
+
+.play-container h1 {
+	font-family: "Press Start 2p";
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+.players-position {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 30px 0px;
+}
+
+.players-dice {
+	margin: 30px 0px;
+}
+
+.dices {
+	margin: 20px 0px;
+}
+
+.dice-info {
+	display: block;
+	margin-top: 20px;
+}
+
+.replay {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
