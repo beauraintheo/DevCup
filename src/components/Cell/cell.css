@@ -7,3 +7,8 @@
 	justify-content: center;
 	width: 30px;
 }
+
+.current-cell {
+	background-color: black;
+	color: white;
+}

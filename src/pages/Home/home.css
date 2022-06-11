@@ -21,3 +21,8 @@
 	flex-direction: column;
 	justify-content: center;
 }
+
+.home-container img {
+	margin-top: 100px;
+	width: 300px;
+}

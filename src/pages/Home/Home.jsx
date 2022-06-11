@@ -2,7 +2,7 @@
 import StartButton from "../../components/StartButton/StartButton";
 
 /** Assets import */
-import LogoAcensi from "../../assets/logo-acensi.png";
+import LogoAcensi from "../../assets/images/acensi.png";
 
 /** CSS import */
 import "./home.css";
@@ -17,6 +17,8 @@ const Home = () => {
 				<StartButton link="/rules" title="RULES" />
 				<StartButton link="/" title="QUIT" />
 			</div>
+
+			<img src={LogoAcensi} alt="#" />
 		</div>
 	);
 };
