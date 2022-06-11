@@ -96,15 +96,18 @@ const Play = () => {
 			selectItem: false
 		}
 	]);
-
+	
 	const [ disableDice, setDisableDice ] = React.useState(false);
 	const [ diceResult, setDiceResult ] = React.useState(0);
 	const [ currentPlayerId, setCurrentPlayerId ] = React.useState(Math.floor(Math.random() * 2));
 	const [ oldPlayerId, setOldPlayerId ] = React.useState();
 	const [ activeItem, setActiveItem ] = React.useState();
+	console.log('activeItem: ', activeItem);
+	console.log('activeItemInfos: ', items[players[currentPlayerId].items[activeItem]]);
 	
-	const boardSize = 40;
+	const boardSize = 20;
 
+	// Init items for a player
 	const giveItems = () => {
 		let itemByPercentage = "";
 		items.map(item => { 
@@ -158,7 +161,7 @@ const Play = () => {
 				<span>{`${players[currentPlayerId].name} : C'est à ton tour !`}</span>
 				
 				<div className="dices">
-					<Dice disabled={disableDice} rollingTime={500} size={100} cheatValue={6} onRoll={(value) => {
+					<Dice disabled={disableDice} rollingTime={500} size={100} onRoll={(value) => {
 						setDiceResult(value);
 						setOldPlayerId(currentPlayerId);
 						setCurrentPlayerId(players.length - 1 === currentPlayerId ? 0 : currentPlayerId + 1);

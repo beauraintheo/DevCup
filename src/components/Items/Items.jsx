@@ -7,7 +7,7 @@ const Items = ({ playersItems, items }) => {
 			{ 
 				playersItems 
 				&& playersItems.length !== 0 
-				&& playersItems.map((playerItem, index) => <Card key={index} data={items[playerItem]} />) 
+				&& playersItems.map((playerItem, index) => <Card key={index} data={items[playerItem]} selectItem={index} />) 
 			}
 		</div>
 	)

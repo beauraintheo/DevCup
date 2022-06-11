@@ -18,7 +18,11 @@ const Home = () => {
 				<StartButton link="/" title="QUIT" />
 			</div>
 
-			<img src={LogoAcensi} alt="#" />
+			<div className="footer">
+				<p>Created by Théo Beaurain</p>
+				<p>In partenariat with : </p>
+				<img src={LogoAcensi} alt="#" />
+			</div>
 		</div>
 	);
 };
