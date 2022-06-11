@@ -94,6 +94,13 @@ const Play = () => {
 			position: 0,
 			items: [],
 			selectItem: false
+		},
+		{
+			id: 3,
+			name: "Wendy",
+			position: 0,
+			items: [],
+			selectItem: false
 		}
 	]);
 	
@@ -147,8 +154,7 @@ const Play = () => {
 		<div className="play-container">
 			<div className="players-position">
 				<h1>Position des joueurs</h1>
-				<PlayerBoard player={players[0].name} size={boardSize} current={players[0].position} />
-				<PlayerBoard player={players[1].name} size={boardSize} current={players[1].position} />
+				{ players.map((player, index) => <PlayerBoard player={player.name} size={boardSize} current={player.position} />) }
 			</div>
 
 			<div className="hr"><hr /></div>
